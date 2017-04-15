@@ -2,6 +2,7 @@ package com.jonnyliu.proj.wechat.service.accesstoken;
 
 import com.jonnyliu.proj.wechat.bean.AccessTokenBean;
 
+import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -25,7 +26,7 @@ public class FetchAccessTokenThread implements Runnable {
     @Override
     public void run() {
         AccessTokenBean accessToken = accessTokenService.getAccessToken();
-        System.out.println("thread name :" + threadName + " , token : " + accessToken);
+        System.out.println("thread name :" + threadName + " , token : " + accessToken + "start time :" + new Date().toLocaleString());
         latch.countDown();
     }
 }
